@@ -1,6 +1,8 @@
 # Checkpoints
 
-Six checkpoints are published with this repository, covering both corpora.
+Six checkpoints ship in this repository under `release/`, covering both corpora.
+They are committed directly rather than attached as a release asset, so a plain
+`git clone` gets them (the clone is ~205 MB as a result).
 
 | File | Stage | Params | Size |
 |---|---|---|---|
@@ -11,7 +13,11 @@ Six checkpoints are published with this repository, covering both corpora.
 | `csl_v25.pt` | generator, base stage | — | 35.1 MB |
 | `csl_v29_deployed.pt` | generator + adversarial critic | — | 35.8 MB |
 
-Verify with `sha256sum -c SHA256SUMS.txt`.
+Verify with:
+
+```bash
+cd release && sha256sum -c SHA256SUMS.txt
+```
 
 ## What these are, and what they are not
 

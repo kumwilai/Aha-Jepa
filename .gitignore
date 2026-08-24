@@ -29,3 +29,6 @@ venv/
 
 # os
 .DS_Store
+
+# checkpoints are distributed with the repo (see docs/CHECKPOINTS.md)
+!release/*.pt
