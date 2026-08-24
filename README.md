@@ -44,16 +44,18 @@ perceptual validation as complementary future work.
 ## Reproducibility status - read this first
 
 This repository ships **complete source code** for every stage of the pipeline,
-the carrier-swap and ablation drivers, and **six trained checkpoints** covering
-both corpora (see [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md)).
+the carrier-swap and ablation drivers, and **seven trained checkpoints** covering
+both corpora, with measured scores (see [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md)).
 
 Please read these three caveats before quoting anything.
 
-1. **The published checkpoints are retrained, not the paper's originals.** The
-   weight files behind the paper's tables were not retained. The ones here were
-   produced from this code at `--seed 0` with the paper's recipe, and have
-   **not** been scored on the SLRTP harness. Treat them as a working starting
-   point, not as evidence for a specific number.
+1. **The checkpoints do not reproduce the paper.** They reach test BLEU-4 10.864
+   / WER 81.994 on the SLRTP-2025 harness, leak-free. The paper reports BLEU-4
+   11.71 / WER 82.26. WER lands close; **BLEU-4 is about 0.85 short**. These are
+   a close reconstruction at `--seed 0`, not the original weight files, which
+   were not retained. One input is unrecoverable: the Sign-JEPA carrier the
+   deployed model was anchored to is gone, so the lineage here uses a retrained
+   substitute.
 2. **The exemplar bank is the one artifact you must supply.** Training reads
    nothing else. Building it needs frame-level CTC posteriors from a sign
    recognizer trained on the corpus; ours are not redistributable. Any CTC
@@ -63,9 +65,10 @@ Please read these three caveats before quoting anything.
    are distributed by their own licensors under their own terms. See
    [docs/REPRODUCING.md](docs/REPRODUCING.md) for how to obtain each.
 
-Retraining is cheap: **the full PHOENIX chain takes about 22 minutes** on a
-single RTX 5070 Ti (measured, not estimated). Once you have a bank, training
-your own is usually easier than starting from ours.
+**If you retrain, read the recipe section of `docs/CHECKPOINTS.md` first.** The
+deployed model is the tail of a staged warm-start curriculum, and the generator
+flags in `scripts/carrier_swap_*.sh` belong to the *ablation*, not to it. Using
+the ablation flags cost us 4.7 WER and 2.0 BLEU-4 before we caught it.
 
 ## Install
 
