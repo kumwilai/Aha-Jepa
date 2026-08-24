@@ -1,0 +1,12 @@
+# AHA-JEPA — runtime dependencies
+# Verified against the environment the paper's results were produced in:
+# Python 3.12.3, CUDA GPU with >=16 GB VRAM (RTX 5070 Ti).
+torch>=2.1
+numpy>=1.24
+scikit-learn>=1.3
+joblib>=1.3
+matplotlib>=3.8
+
+# The SLRTP-2025 evaluation harness is a separate repository with its own,
+# older pinned requirements (sacrebleu, jiwer, fastdtw, torchtext==0.5.0).
+# Install it in its OWN environment -- see docs/REPRODUCING.md.

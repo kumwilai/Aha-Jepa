@@ -1,0 +1,28 @@
+# datasets and licensed corpora -- never commit
+data/
+external/
+*.npz
+*.npy
+*.lmdb
+
+# checkpoints, generated poses, run outputs
+outputs/
+*.pt
+*.pth
+*.joblib
+*.ckpt
+
+# logs
+*.log
+logs/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# os
+.DS_Store

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "AHA-JEPA: Articulated Hand-Aware JEPA for Leak-Free Gloss-Conditioned Sign Pose Generation"
+authors:
+  - family-names: Kumwilaisak
+    given-names: Wuttipong
+    orcid: "https://orcid.org/0000-0002-2957-6084"
+    affiliation: "King Mongkut's University of Technology Thonburi (KMUTT)"
+    email: wuttipong.kum@kmutt.ac.th
+preferred-citation:
+  type: article
+  title: "AHA-JEPA: Articulated Hand-Aware JEPA for Leak-Free Gloss-Conditioned Sign Pose Generation"
+  authors:
+    - family-names: Kumwilaisak
+      given-names: Wuttipong
+      orcid: "https://orcid.org/0000-0002-2957-6084"
+  journal: "IEEE Access"
+  year: 2026
+repository-code: "https://github.com/kumwilai/aha-jepa"
+license: MIT
