@@ -61,7 +61,7 @@ expect to train from scratch. Please read `docs/REPRODUCING.md` before starting.
 ## Install
 
 ```bash
-git clone git@github.com:kumwilai/aha-jepa.git
+git clone git@github.com:kumwilai/Aha-Jepa.git
 cd aha-jepa
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt

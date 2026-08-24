@@ -275,4 +275,4 @@ setup and is not reported.
 | Phase-24 span index (`--source_bank`) | not released — needs your own forced alignment |
 | SLRTP / PHOENIX / CSL-Daily data | obtain from licensors (§0.2) |
 
-Issues and questions: <https://github.com/kumwilai/aha-jepa/issues>
+Issues and questions: <https://github.com/kumwilai/Aha-Jepa/issues>
