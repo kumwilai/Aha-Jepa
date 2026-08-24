@@ -62,12 +62,24 @@ python scripts/build_slrtp178_exemplars.py \
   --out outputs/sota_chase/phase40_slrtp178/exemplars_slrtp178_upc.pt
 ```
 
-> **Note.** `--source_bank` supplies the per-gloss span index. It comes from a
-> CTC forced alignment over the training corpus and is **not included in this
-> release**. To build a bank from scratch you need per-gloss spans from your own
-> forced alignment over SLRTP train; the pose payload itself comes straight from
-> `train.pt`. This is the single largest obstacle to a cold-start reproduction —
-> please open an issue if you need the span index.
+> **Note.** `--source_bank` supplies the per-gloss span index. Build it first
+> with `scripts/build_pergloss_exemplars.py`, which runs CTC Viterbi forced
+> alignment over a recognizer's frame posteriors:
+>
+> ```bash
+> CORRNET_POSTERIORS=/path/to/train.pkl \
+> python scripts/build_pergloss_exemplars.py \
+>   --out_path outputs/sota_chase/phase24_pgrast/exemplars.pt
+> ```
+>
+> The posterior cache must come from a CTC sign recognizer trained on the same
+> corpus. We used CorrNet; any equivalent works, since only the span boundaries
+> are consumed. Our cache is not redistributable, so this is the one step you
+> must supply yourself. A UPC codebook is **not** needed - `exemplar_upc` is
+> optional and the training loader ignores it.
+>
+> Our rebuild aligned 7096/7096 clips with zero proportional fallbacks, giving
+> 1081 glosses / 54 930 exemplars at 178 keypoints (2.6 GB).
 
 ---
 
@@ -269,10 +281,11 @@ setup and is not reported.
 
 | Artifact | Status |
 |---|---|
-| Trained checkpoints (carrier, v25, v29) | not retained — retrain via §1–3 |
-| Governor policy `policy.pt` | not retained — refit with `governor.py fit` |
+| Trained checkpoints (carrier, v25, v29), both corpora | **published** - see `docs/CHECKPOINTS.md`. Retrained, not the paper's originals, and unscored. |
+| Governor policy `policy.pt` | not retained - refit with `governor.py fit` |
+| Duration policy `train_bt_rf_policy.joblib` | not retained - refit with `train_jepa_duration_policy.py` (needed before any leak-free generation) |
 | Phase-40 exemplar bank | build via §0.3 |
-| Phase-24 span index (`--source_bank`) | not released — needs your own forced alignment |
+| Phase-24 span index | build via `build_pergloss_exemplars.py`; needs your own CTC posteriors |
 | SLRTP / PHOENIX / CSL-Daily data | obtain from licensors (§0.2) |
 
 Issues and questions: <https://github.com/kumwilai/Aha-Jepa/issues>

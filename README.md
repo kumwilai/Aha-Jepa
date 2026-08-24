@@ -41,22 +41,31 @@ carrier. This is a **metric/motion trade-off, not a metric win**. We therefore
 report lexical metrics together with motion statistics, and treat deaf-signer
 perceptual validation as complementary future work.
 
-## Reproducibility status — read this first
+## Reproducibility status - read this first
 
 This repository ships **complete source code** for every stage of the pipeline,
-plus the carrier-swap and ablation drivers. Two things it does **not** ship:
+the carrier-swap and ablation drivers, and **six trained checkpoints** covering
+both corpora (see [docs/CHECKPOINTS.md](docs/CHECKPOINTS.md)).
 
-1. **No trained checkpoints.** The deployed `sign_jepa_v29_adv` weights, the
-   pretrained Sign-JEPA carrier, and the fitted governor policy were not
-   retained after the paper was finalized. Every number in the paper is
-   reproducible only by rerunning the training chain below.
-2. **No datasets or derived pose banks.** PHOENIX-2014T, CSL-Daily, and the
-   SLRTP-2025 evaluation data are redistributed by their own licensors under
-   their own terms. See [docs/REPRODUCING.md](docs/REPRODUCING.md) for how to
-   obtain each one, and how to build the exemplar bank that training consumes.
+Please read these three caveats before quoting anything.
 
-The pipeline is fully scripted and the entry points are verified to run, but
-expect to train from scratch. Please read `docs/REPRODUCING.md` before starting.
+1. **The published checkpoints are retrained, not the paper's originals.** The
+   weight files behind the paper's tables were not retained. The ones here were
+   produced from this code at `--seed 0` with the paper's recipe, and have
+   **not** been scored on the SLRTP harness. Treat them as a working starting
+   point, not as evidence for a specific number.
+2. **The exemplar bank is the one artifact you must supply.** Training reads
+   nothing else. Building it needs frame-level CTC posteriors from a sign
+   recognizer trained on the corpus; ours are not redistributable. Any CTC
+   recognizer works, since only the Viterbi span boundaries are used. Both build
+   steps are scripted - see `docs/CHECKPOINTS.md`.
+3. **No datasets.** PHOENIX-2014T, CSL-Daily and the SLRTP-2025 evaluation data
+   are distributed by their own licensors under their own terms. See
+   [docs/REPRODUCING.md](docs/REPRODUCING.md) for how to obtain each.
+
+Retraining is cheap: **the full PHOENIX chain takes about 22 minutes** on a
+single RTX 5070 Ti (measured, not estimated). Once you have a bank, training
+your own is usually easier than starting from ours.
 
 ## Install
 

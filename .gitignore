@@ -1,11 +1,14 @@
 # datasets and licensed corpora -- never commit
+data
 data/
+external
 external/
 *.npz
 *.npy
 *.lmdb
 
 # checkpoints, generated poses, run outputs
+outputs
 outputs/
 *.pt
 *.pth
