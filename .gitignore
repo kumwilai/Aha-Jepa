@@ -1,15 +1,15 @@
 # datasets and licensed corpora -- never commit
-data
-data/
-external
-external/
+/data
+/data/
+/external
+/external/
 *.npz
 *.npy
 *.lmdb
 
 # checkpoints, generated poses, run outputs
-outputs
-outputs/
+/outputs
+/outputs/
 *.pt
 *.pth
 *.joblib
@@ -32,3 +32,7 @@ venv/
 
 # checkpoints are distributed with the repo (see docs/CHECKPOINTS.md)
 !release/*.pt
+
+# generated figures
+paper/*.pdf
+paper/*.png
