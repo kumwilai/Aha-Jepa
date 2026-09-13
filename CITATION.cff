@@ -15,6 +15,11 @@ preferred-citation:
       given-names: Wuttipong
       orcid: "https://orcid.org/0000-0002-2957-6084"
   journal: "IEEE Access"
+  volume: 14
+  start: 128559
+  end: 128580
   year: 2026
+  doi: "10.1109/ACCESS.2026.3716809"
 repository-code: "https://github.com/kumwilai/Aha-Jepa"
 license: MIT
+doi: "10.1109/ACCESS.2026.3716809"

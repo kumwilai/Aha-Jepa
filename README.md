@@ -2,7 +2,8 @@
 
 **Articulated Hand-Aware JEPA for Leak-Free Gloss-Conditioned Sign Pose Generation**
 
-Official implementation. IEEE Access, 2026 (accepted).
+Official implementation. Published in *IEEE Access*, vol. 14, pp. 128559–128580, 2026.
+[![DOI](https://img.shields.io/badge/DOI-10.1109%2FACCESS.2026.3716809-blue)](https://doi.org/10.1109/ACCESS.2026.3716809)
 
 Wuttipong Kumwilaisak, *Senior Member, IEEE* — Department of Electronic and
 Telecommunication Engineering, King Mongkut's University of Technology Thonburi
@@ -159,7 +160,10 @@ reproducible from the code here.
   title   = {{AHA-JEPA}: Articulated Hand-Aware {JEPA} for Leak-Free
              Gloss-Conditioned Sign Pose Generation},
   journal = {IEEE Access},
-  year    = {2026}
+  volume  = {14},
+  pages   = {128559--128580},
+  year    = {2026},
+  doi     = {10.1109/ACCESS.2026.3716809}
 }
 ```
 
